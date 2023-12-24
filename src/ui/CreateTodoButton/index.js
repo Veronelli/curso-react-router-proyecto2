@@ -1,9 +1,12 @@
 import React from 'react';
 import './CreateTodoButton.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function CreateTodoButton(props) {
+  const navigation = useNavigate();
   const onClickButton = () => {
-    props.setOpenModal(prevState => !prevState);
+    navigation("/create")    
   };
 
   return (

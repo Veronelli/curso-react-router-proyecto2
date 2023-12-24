@@ -8,13 +8,14 @@ import { TodoItem } from "../../ui/TodoItem";
 import { TodosError } from "../../ui/TodosError";
 import { TodosLoading } from "../../ui/TodosLoading";
 import { EmptyTodos } from "../../ui/EmptyTodos";
-import { TodoForm } from "../../ui/TodoForm";
 import { CreateTodoButton } from "../../ui/CreateTodoButton";
-import { Modal } from "../../ui/Modal";
 import { ChangeAlert } from "../../ui/ChangeAlert";
+import {useNavigate} from "react-router-dom"
+
 
 function HomePage() {
   const { state, stateUpdaters } = useTodos();
+  const navigation = useNavigate();
 
   const {
     error,
@@ -22,13 +23,11 @@ function HomePage() {
     searchedTodos,
     totalTodos,
     completedTodos,
-    openModal,
     searchValue,
   } = state;
 
   const {
     setOpenModal,
-    addTodo,
     completeTodo,
     deleteTodo,
     setSearchValue,
@@ -60,18 +59,13 @@ function HomePage() {
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onEdit={() => console.log(`Edit ${todo.id}`)}
+            onEdit={() => navigation("/edit/"+todo.id)}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />
         )}
       </TodoList>
 
-      {!!openModal && (
-        <Modal>
-          <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
-        </Modal>
-      )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
 
