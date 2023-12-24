@@ -21,7 +21,7 @@ function UpdateTodoPage() {
           alignItems: "center",
         }}
       >
-        <TodoForm onSubmitButton={onSubmitButton} />
+        <TodoForm onSubmitButton={onSubmitButton} submitButton="Edit" />
       </div>
     </>
   );

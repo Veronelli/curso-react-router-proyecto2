@@ -19,7 +19,7 @@ function CreateTodoPage() {
           alignItems: "center",
         }}
       >
-        <TodoForm onSubmitButton={onSubmitButton} />
+        <TodoForm onSubmitButton={onSubmitButton} submitButton="Create"/>
       </div>
     </>
   );
