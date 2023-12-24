@@ -15,6 +15,32 @@
   position: absolute;
   top: -24px;
   right: 0;
+  background-color: red;
+  border-radius: 100px;
+  transition: all .3s;
+}
+.Icon-container--edit {
+  position: absolute;
+  top: -24px;
+  right: 60px;
+  background-color: blue;  
+  border-radius: 100px;
+}
+
+.Icon-container--edit:hover {
+  background-color: white;
+  transition: all .3s;  
+}.Icon-container--delete:hover {
+  background-color: white;
+}
+
+.Icon-svg--delete{
+    fill: white;
+  transition: all .3s;  
+}
+.Icon-svg--edit{
+  fill: white;
+  transition: all .3s;  
 }
 
 .Icon-svg {
@@ -27,4 +53,7 @@
 }
 .Icon-container:hover .Icon-svg--delete {
   fill: red;
+}
+.Icon-container:hover .Icon-svg--edit {
+  fill: blue;
 }

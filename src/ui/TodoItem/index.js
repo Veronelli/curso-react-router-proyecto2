@@ -2,6 +2,7 @@ import React from 'react';
 import { CompleteIcon } from '../TodoIcon/CompleteIcon';
 import { DeleteIcon } from '../TodoIcon/DeleteIcon';
 import './TodoItem.css';
+import { EditIcon } from '../TodoIcon/EditIcon';
 
 function TodoItem(props) {
   return (
@@ -15,9 +16,11 @@ function TodoItem(props) {
       >
         {props.text}
       </p>
+
       <DeleteIcon
         onDelete={props.onDelete}
       />
+      <EditIcon onEdit={props.onEdit}/>
     </li>
   );
 }
