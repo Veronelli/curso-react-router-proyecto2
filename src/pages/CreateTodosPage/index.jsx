@@ -4,7 +4,7 @@ import { useTodos } from "../HomePage/useTodos";
 function CreateTodoPage() {
   const { stateUpdaters, state } = useTodos();
   const { addTodo } = stateUpdaters
-  const { todos } = state
+  const { todos, loading } = state
   const onSubmitButton = (value)=>{
     addTodo(value);
   }
@@ -17,6 +17,8 @@ function CreateTodoPage() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          pointerEvents: loading ? "none" : "all",
+          opacity: loading ? 0.5 : 1,
         }}
       >
         <TodoForm onSubmitButton={onSubmitButton} submitButton="Create"/>
