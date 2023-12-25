@@ -30,7 +30,6 @@ function useTodos() {
 
   const addTodo = (text) => {
     const newTodos = [...todos];
-    console.log(todos)
     newTodos.push({
       completed: false,
       text,
@@ -52,7 +51,10 @@ function useTodos() {
     newTodos[todoIndex].text = text;
     saveTodos(newTodos);
   };
-
+  const getTodo = (id)=>{
+    const todo = todos.find(todo => todo.id === id);
+    return todo
+  }
   const deleteTodo = (id) => {
     const todoIndex = todos.findIndex(todo => todo.id === id);
     const newTodos = [...todos];
@@ -68,7 +70,8 @@ function useTodos() {
     searchValue,
     searchedTodos,
     openModal,
-    todos
+    todos,
+    getTodo
   };
   
   const stateUpdaters = {

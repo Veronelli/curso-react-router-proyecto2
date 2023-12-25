@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './TodoForm.css';
 import { useNavigate } from 'react-router-dom';
 
-function TodoForm({ onSubmitButton, submitButton }) {
-  const [newTodoValue, setNewTodoValue] = React.useState('');
+function TodoForm({ onSubmitButton, submitButton, defaultText }) {
+  const [newTodoValue, setNewTodoValue] = React.useState(defaultText);
   const navigation = useNavigate();
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
@@ -16,14 +16,16 @@ function TodoForm({ onSubmitButton, submitButton }) {
     onSubmitButton(newTodoValue);
     navigation("/")
   };
-
+  useEffect(()=>{
+    setNewTodoValue(defaultText)
+  },[defaultText])
   return (
     <form onSubmit={onSubmit}>
       <label>TODO TITLE</label>
       <textarea
         value={newTodoValue}
         onChange={onChange}
-        placeholder="Cortar la cebolla oara el almuerzo"
+        placeholder={defaultText}
       />
       <div className="TodoForm-buttonContainer">
         <button

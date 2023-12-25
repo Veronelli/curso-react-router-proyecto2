@@ -10,8 +10,7 @@ import { TodosLoading } from "../../ui/TodosLoading";
 import { EmptyTodos } from "../../ui/EmptyTodos";
 import { CreateTodoButton } from "../../ui/CreateTodoButton";
 import { ChangeAlert } from "../../ui/ChangeAlert";
-import {useNavigate} from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const { state, stateUpdaters } = useTodos();
@@ -33,6 +32,10 @@ function HomePage() {
     setSearchValue,
     sincronizeTodos,
   } = stateUpdaters;
+
+  const onEditTodo = (todo) => {
+    navigation("/edit/" + todo.id,{state: todo});
+  };
 
   return (
     <React.Fragment>
@@ -59,13 +62,12 @@ function HomePage() {
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onEdit={() => navigation("/edit/"+todo.id)}
+            onEdit={()=>onEditTodo(todo)}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />
         )}
       </TodoList>
-
 
       <CreateTodoButton setOpenModal={setOpenModal} />
 
@@ -74,4 +76,4 @@ function HomePage() {
   );
 }
 
-export {HomePage};
+export { HomePage };
