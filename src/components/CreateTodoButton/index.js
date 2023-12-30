@@ -1,9 +1,11 @@
 import React from 'react';
 import './CreateTodoButton.css';
+import { useHistory } from 'react-router-dom';
 
 function CreateTodoButton(props) {
+  const history = useHistory();
   const onClickButton = () => {
-    props.setOpenModal(prevState => !prevState);
+    history.push('/create')
   };
 
   return (
