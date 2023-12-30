@@ -13,7 +13,7 @@ import { CreateTodoButton } from '../components/CreateTodoButton';
 import { Modal } from '../components/Modal';
 import { ChangeAlert } from '../components/ChangeAlert';
 
-function HomePage() {
+function HomeUI() {
   const { state, stateUpdaters } = useTodos();
 
   const {
@@ -92,4 +92,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default HomeUI;
