@@ -14,7 +14,7 @@ function App() {
         <Route exact path="/create">
           <CreatePage />
         </Route>
-        <Route exact path="/edit">
+        <Route exact path="/edit/:id">
           <EditPage />
         </Route>
         <Route exact path="/" >

@@ -6,7 +6,6 @@ import { EditIcon } from "../TodoIcon/EditIcon";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TodoItem(props) {
-
   return (
     <li className="TodoItem">
       <CompleteIcon completed={props.completed} onComplete={props.onComplete} />

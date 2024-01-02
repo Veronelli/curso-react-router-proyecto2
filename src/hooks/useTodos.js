@@ -28,7 +28,7 @@ function useTodos() {
     });
   }
 
-  const addTodo = (text) => {
+  const addTodo = ({text}) => {
     const newTodos = [...todos];
     newTodos.push({
       completed: false,
@@ -38,9 +38,9 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
-  const getTodoById = (id)=>{
-    return todos.find(todo => todo.id === id);
-  }
+  const getTodoById = (id) => {
+    return todos.find((todo) => todo.id === id);
+  };
 
   const completeTodo = (id) => {
     const todoIndex = todos.findIndex((todo) => todo.id === id);
@@ -56,6 +56,16 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
+  const editTodoById = (id, text) => {
+    const todoEdited = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, text };
+      }
+      return todo;
+    });
+    saveTodos(todoEdited);
+  };
+
   const state = {
     loading,
     error,
@@ -64,7 +74,7 @@ function useTodos() {
     searchValue,
     searchedTodos,
     openModal,
-    getTodoById
+    getTodoById,
   };
 
   const stateUpdaters = {
@@ -73,6 +83,7 @@ function useTodos() {
     completeTodo,
     deleteTodo,
     setOpenModal,
+    editTodoById,
     sincronizeTodos,
   };
 

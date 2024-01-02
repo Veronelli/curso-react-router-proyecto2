@@ -15,7 +15,7 @@ function TodoForm({ onSubmitButton, buttonLabel, inputText }) {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    onSubmitButton(newTodoValue);
+    onSubmitButton({text:newTodoValue});
     history.push("/");
   };
 
