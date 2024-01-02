@@ -1,7 +1,7 @@
 import TodoFormUI from "../../ui/TodoFormUI";
 
 function EditPage(){
-    return <TodoFormUI />
+    return <TodoFormUI buttonLabel="Update" />
 
 }
 

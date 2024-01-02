@@ -1,19 +1,20 @@
 import React from 'react';
 import './TodoForm.css';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-function TodoForm({ addTodo, setOpenModal }) {
+function TodoForm({ addTodo, onSubmitButton, buttonLabel }) {
   const [newTodoValue, setNewTodoValue] = React.useState('');
-
+  const history = useHistory()
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
   };
   const onCancel = () => {
-    setOpenModal(false);
+    history.push("/")
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    addTodo(newTodoValue);
-    setOpenModal(false);
+    onSubmitButton(newTodoValue)
+    history.push("/")
   };
 
   return (
@@ -36,7 +37,7 @@ function TodoForm({ addTodo, setOpenModal }) {
           type="submit"
           className="TodoForm-button TodoForm-button--add"
         >
-          Añadir
+          {buttonLabel}
         </button>
       </div>
     </form>
