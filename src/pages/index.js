@@ -12,6 +12,7 @@ import { TodoForm } from '../components/TodoForm';
 import { CreateTodoButton } from '../components/CreateTodoButton';
 import { Modal } from '../components/Modal';
 import { ChangeAlert } from '../components/ChangeAlert';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function HomePage() {
   const { state, stateUpdaters } = useTodos();
@@ -34,7 +35,8 @@ function HomePage() {
     setSearchValue,
     sincronizeTodos,
   } = stateUpdaters;
-  
+  const history = useHistory();
+
   return (
     <React.Fragment>
       <TodoHeader loading={loading}>
@@ -66,8 +68,9 @@ function HomePage() {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
+            onEdit={()=> history.push(`/edit?id=${todo.id}`)}
           />
         )}
       </TodoList>

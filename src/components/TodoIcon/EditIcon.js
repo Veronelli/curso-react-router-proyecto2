@@ -1,11 +1,11 @@
 import React from 'react';
 import { TodoIcon } from './';
 
-function EditIcon({ onDelete }) {
+function EditIcon({ onEdit }) {
   return (
     <TodoIcon
       type="edit"
-      onClick={onDelete}
+      onClick={onEdit}
     />
   );
 }

@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { TodoForm } from "../components/TodoForm";
 import { useTodos } from "../hooks/useTodos";
 
-function TodoFormUI({ buttonLabel, onSubmitButton }) {
+function TodoFormUI({ buttonLabel, onSubmitButton, inputText }) {
   const { state:{loading} } = useTodos();
   return (
     <>
@@ -16,7 +17,7 @@ function TodoFormUI({ buttonLabel, onSubmitButton }) {
           pointerEvents: loading ? "none" : "all"
         }}
       >
-        <TodoForm buttonLabel={buttonLabel} onSubmitButton={onSubmitButton}/>
+        <TodoForm buttonLabel={buttonLabel} onSubmitButton={onSubmitButton} inputText={inputText}/>
       </div>
     </>
   );
